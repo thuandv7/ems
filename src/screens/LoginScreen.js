@@ -12,6 +12,7 @@ import {
   View, TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
+import FromLogin from '../components/auth/FormLogin';
 
 class LoginScreen extends Component {
   static navigationOptions = {
@@ -23,17 +24,7 @@ class LoginScreen extends Component {
     console.log('===================AUTH=================');
     console.log(this.props.auth);
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Login Page!
-        </Text>
-        <TouchableOpacity onPress={ () => this.props.onClick()}>
-          <Text>On Go Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={ () => this.props.onLogin()}>
-          <Text>On Go Home</Text>
-        </TouchableOpacity>
-      </View>
+      <FromLogin />
     );
   }
 }
