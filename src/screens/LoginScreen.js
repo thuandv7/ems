@@ -15,19 +15,12 @@ import { connect } from 'react-redux';
 import FromLogin from '../components/auth/FormLogin';
 
 class LoginScreen extends Component {
-  static navigationOptions = {
-     // !!! Hide Header
-  }
   render() {
-    console.log('==================NAV==================');
-    console.log(this.props.nav);
-    console.log('===================AUTH=================');
-    console.log(this.props.auth);
     return (
       <FromLogin />
     );
   }
-}
+};
 mapDispatchToProps = (dispatch) => {
   return {
     onClick: () => dispatch({type: "HOME"}),

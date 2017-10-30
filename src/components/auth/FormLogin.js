@@ -14,7 +14,7 @@ import UserInput from "./UserInput";
 import { connect } from 'react-redux';
 import { ic_user, ic_lock } from "../../imgs";
 import {
-    login
+    actionLogin, goHome
 } from "../../redux/actions";
 
 class FormLogin extends React.Component {
@@ -27,7 +27,12 @@ class FormLogin extends React.Component {
     }
     
     render() {
-        const { account } = this.props;
+        const { auth } = this.props;
+        if (auth.data !== null && auth.data.status == true) {
+            console.log(auth.data);    
+            this.props.goHome();
+        }
+        
         return(
             <View style={styles.form}> 
                 <Logo />
@@ -51,8 +56,11 @@ class FormLogin extends React.Component {
                 }}/>
                 <View style={styles.borderInput}/>
                 <SubmitLogin isLogin={false} onPress={ 
-                    () => {}
-                    // () => this.props.onClickSubmit(this.state.username, this.state.password)
+                    //() => {}
+                    (e) => {
+                        e.preventDefault();
+                        this.props.actionLogin(this.state.username, this.state.password);
+                    }
                     }/>
                 <Text> {this.state.value} </Text>
                 <View style={{ height: 50 }} />
@@ -81,14 +89,15 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
     return {
-        state: state
+        auth: state.auth
     };
   }
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClickSubmit: (username, password) => {
-            dispatch(login(username, password));
-      }
+    actionLogin: (username, password) => {
+            dispatch(actionLogin(username, password));
+      },
+      goHome: () => dispatch(goHome)
     }
   }
 

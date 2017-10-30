@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+import UserStatus from '../components/settings/UserStatus';
+
 export default class SettingScreen extends Component {
   render() {
     return (
@@ -19,6 +21,7 @@ export default class SettingScreen extends Component {
         <Text style={styles.welcome}>
           Welcome to Settings Page!
         </Text>
+        <UserStatus />
       </View>
     );
   }
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'stretch',
     backgroundColor: '#F5FCFF',
   },
   welcome: {

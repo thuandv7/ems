@@ -1,14 +1,15 @@
 import { NavigationActions } from 'react-navigation';
 import { AppNav } from '../../routers';
+import { LOGIN_RECEIVED } from '../actions/actionType';
 
 const initialAuthState = {
-    isLogged: false
+    data: null
 };
 
 const AuthReducer = (state = initialAuthState, action) => {
   switch(action.type){
-      case 'HIHI':  
-        return {...state, isLogged: true};
+      case LOGIN_RECEIVED:  
+        return {...state, data: action.data};
     //   default:
     //     return AppNav.router.getStateForAction(action, state);
       //  return AppNav.router.getStateForAction(AppNav.router.getActionForPathAndParams('Home'));

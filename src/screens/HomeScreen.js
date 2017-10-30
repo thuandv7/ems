@@ -11,15 +11,11 @@ import {
   Text,
   View
 } from 'react-native';
-
+import StationList from '../components/home/StationList'
 export default class HomeScreen extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Home Page!
-        </Text>
-      </View>
+    return (      
+        <StationList/>
     );
   }
 }

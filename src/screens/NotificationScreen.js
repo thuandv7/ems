@@ -11,7 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-
+import UserStatus from '../components/settings/UserStatus';
 export default class NotificationScreen extends Component {
   render() {
     return (
@@ -19,6 +19,7 @@ export default class NotificationScreen extends Component {
         <Text style={styles.welcome}>
           Welcome to Notification Page!
         </Text>
+        <UserStatus />
       </View>
     );
   }

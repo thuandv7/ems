@@ -1,5 +1,6 @@
 import { NavigationActions } from 'react-navigation';
 import { AppNav } from '../../routers';
+import { GOHOME } from '../actions/actionType';
 
 const initialNavState = {
     index: 0,
@@ -10,7 +11,7 @@ const initialNavState = {
 
 const NavReducer = (state = initialNavState, action) => {
   switch(action.type){
-      case 'HOME':  
+      case GOHOME:  
         return AppNav.router.getStateForAction(NavigationActions.navigate({ routeName: 'Home' }), state);
       default:
         return AppNav.router.getStateForAction(action, state);
