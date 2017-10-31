@@ -13,9 +13,8 @@ class StationList extends React.Component {
     render() {
         const { data } = this.props;
         var stations = [];
-        console.log(data);
-        if (data !== null && data.data !== null) {
-            stations = data.data;
+        if (data !== null && data.stations !== null) {
+            stations = data.stations;
         }
         return (
         <View style={ styles.button_submit }>
@@ -33,23 +32,22 @@ const styles = StyleSheet.create({
     button_submit: {
         flex: 1,
         alignItems: 'stretch',
-        // backgroundColor: primaryColor,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     text_submit: {
 
     }
 });
-const mapDispatchToProps = (dispatch) => {
+mapDispatchToProps = (dispatch) => {
     return {
     loadStation: (username, password) => {
             dispatch(actionLoadStation);
       }
     }
   }
-function mapStateToProps(state) {
+mapStateToProps = state => {
     return {
-        data: state.stations.stations
+        data: state.stations
     };
-  }
+}
 export default connect(mapStateToProps, mapDispatchToProps)(StationList);

@@ -18,7 +18,7 @@ export const AppNav = StackNavigator({
             screen: TabNavi,
             navigationOptions: {
                 title: "HOME",
-               // headerLeft: null
+                headerLeft: null,
             }
         },
     }, {

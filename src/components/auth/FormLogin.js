@@ -21,15 +21,14 @@ class FormLogin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            password: '', 
-            username: ''
+            password: 'thuandv', 
+            username: 'thuandv'
         };
     }
     
     render() {
         const { auth } = this.props;
-        if (auth.data !== null && auth.data.status == true) {
-            console.log(auth.data);    
+        if (auth.data !== null && auth.data.status == true) { 
             this.props.goHome();
         }
         

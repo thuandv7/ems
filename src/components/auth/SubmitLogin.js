@@ -1,5 +1,9 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+    Text,
+    TouchableOpacity,
+    StyleSheet
+} from 'react-native';
 import {
     primaryColor
 } from "../../utils/Colors";
@@ -11,7 +15,7 @@ class SubmitLogin extends React.Component {
             <Text style={ [styles.text_submit, {color}] }> LOGIN </Text>
         </TouchableOpacity>
         );
-    }   
+    }
 }
 
 const styles = StyleSheet.create({
@@ -27,5 +31,5 @@ const styles = StyleSheet.create({
 
     }
 });
-  
+
 export default SubmitLogin;

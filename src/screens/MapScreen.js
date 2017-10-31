@@ -6,24 +6,48 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
-  Text,
-  View
+  View,
 } from 'react-native';
+import { connect } from 'react-redux';
+import MapView from 'react-native-maps';
 
-export default class MapScreen extends Component {
+import { actionLoadStation } from '../redux/actions';
+import { ic_map_pin }  from '../imgs';
+
+class MapScreen extends Component {
   render() {
+    // const { data } = this.props;
+    // var stations = [];
+    // if (data !== null && data.stations !== null) {
+    //     stations = data.stations;
+    // }
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Map Page!
-        </Text>
+        <MapView style={styles.map} showsUserLocation={true} > 
+        {
+          <MapView.Marker coordinate={
+            {latitude: 21.010767,
+            longitude: 105.805743}}
+            image={ic_map_pin}
+            title={'VASoft HN'}
+          />
+        }
+        </MapView>
       </View>
     );
   }
 }
-
+// {stations.map(marker => (
+//   <MapView.Marker
+//     coordinate={{
+//       latitude: marker.KinhDo,
+//       longitude: marker.ViDo,
+//     }}
+//     title={marker.TenDiem}
+//     description={marker.DiaChi}
+//   />
+// ))}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -31,14 +55,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  map: {
+    left: 0, 
+    top: 0, 
+    right: 0, 
+    bottom: 0, 
+    position:'absolute',
   },
 });
+
+//export default connect(mapState, mapDispatch)(MapScreen);
+export default MapScreen;
+
+mapState = state => {
+  return {
+    data: state.stations
+  }
+};
+mapDispatch = dispatch => {
+  return {
+    onLoadMapView: () => dispatch(actionLoadStation)
+  }
+};
