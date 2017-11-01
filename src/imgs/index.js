@@ -8,6 +8,8 @@ import imgMenu from './ic-menu.png';
 import imgReminders from './ic-reminders.png';
 import imgSettings from './ic-settings.png';
 import imgMapPin from './ic-map_pin.png';
+import pin from './ic-pin.png';
+
 
 
 export const ic_eye         = imgEye;
@@ -20,3 +22,4 @@ export const ic_menu        = imgMenu;
 export const ic_reminders   = imgReminders;
 export const ic_settings    = imgSettings;
 export const ic_map_pin     = imgMapPin;
+export const ic_pin         = pin;
